@@ -34,3 +34,48 @@ ATmega32-LCD-LED-Driver-System/
 │       └── lcd.c          # LCD1602 Driver Implementation (4-bit Mode)
 ├── main.c                 # Main Application Logic & Anti-Debounce Algorithm
 └── README.md              # Project Documentation
+```
+⚡ Hardware Connections & Pinout
+1. Character LCD (16x2) - 4-bit Mode
+RS Pin: Connected to PB0 (Pin 1)
+
+EN Pin: Connected to PB1 (Pin 2)
+
+RW Pin: Connected directly to GND (Write Mode)
+
+Data Bus (D4 - D7): Connected to PA4 - PA7 (Pins 36 to 33)
+
+2. LED Module
+Anode (+): Connected to PC0 (Pin 22)
+
+Cathode (-): Connected through a 220Ω Current Limiting Resistor to GND
+
+3. Push Button Module
+Configuration: External Pull-Down Resistor (10kΩ to GND)
+
+Input Signal Pin: Connected to PD0 (Pin 14)
+
+Power Pin: Connected to +5V (High Active)
+
+🚀 Key Features & Design Architecture
+Layered Software Architecture: Designed with strict separation between MCAL (Microcontroller Abstraction Layer) and HAL (Hardware Abstraction Layer) for optimal code reusability, hardware independence, and scalability.
+
+Software Anti-Debouncing: Built-in software delay algorithm in main.c to handle mechanical push button bouncing effects seamlessly.
+
+Efficient Pin Utilization: Driven in 4-bit LCD mode to reduce required GPIO pins from 8 to 4 on PORTA.
+
+🛠️ How to Build and Flash
+Clone this repository to your local machine:
+```
+git clone [https://github.com/ahmedlashin1762005/ATmega32-LCD-LED-Driver-System.git](https://github.com/ahmedlashin1762005/ATmega32-LCD-LED-Driver-System.git)
+```
+Open the solution in Microchip Studio.
+
+Select target device as ATmega32.
+
+Press F7 to Build Solution.
+
+Find the compiled .hex file inside the Debug/ folder and load it into ATmega32 or Proteus simulator.
+
+👤 Author
+ENG:Ahmed Lashin
